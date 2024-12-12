@@ -1,0 +1,62 @@
+<app-titre></app-titre>
+
+<!-- Composant Bouton avec l'événement "nouveauClicked" pour afficher/masquer le formulaire -->
+<app-bouton (nouveauClicked)="toggleForm()"></app-bouton>
+
+<!-- Affichage conditionnel du tableau ou du formulaire -->
+<ng-template #showTable>
+  <app-tableau *ngIf="!showForm"></app-tableau>
+</ng-template>
+
+<!-- Formulaire d'ajout ou modification -->
+<div *ngIf="showForm" class="form-container" style="width: 300px; margin: 20px auto; padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <form class="add-form" (ngSubmit)="addEtudiant()" style="display: flex; flex-direction: column;">
+    <label for="nom" style="margin-bottom: 8px; font-size: 14px; font-weight: bold;">Nom:</label>
+    <input type="text" id="nom" name="nom" [(ngModel)]="newEtudiant.nom" required 
+           style="margin-bottom: 16px; padding: 8px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; outline: none; transition: border-color 0.3s;">
+
+    <label for="prenom" style="margin-bottom: 8px; font-size: 14px; font-weight: bold;">Prénom:</label>
+    <input type="text" id="prenom" name="prenom" [(ngModel)]="newEtudiant.prenom" required 
+           style="margin-bottom: 16px; padding: 8px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; outline: none; transition: border-color 0.3s;">
+
+    <label for="classe" style="margin-bottom: 8px; font-size: 14px; font-weight: bold;">Classe:</label>
+    <input type="text" id="classe" name="classe" [(ngModel)]="newEtudiant.classe" required 
+           style="margin-bottom: 16px; padding: 8px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; outline: none; transition: border-color 0.3s;">
+
+    <button type="submit" 
+            style="padding: 10px; font-size: 16px; color: #fff; background-color: #007bff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">
+      {{ newEtudiant.id === 0 ? 'Ajouter' : 'Modifier' }}
+    </button>
+  </form>
+</div>
+
+<!-- Tableau des étudiants -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <thead>
+    <tr>
+      <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #007bff; color: white;">ID</th>
+      <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #007bff; color: white;">Nom</th>
+      <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #007bff; color: white;">Prénom</th>
+      <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #007bff; color: white;">Classe</th>
+      <th style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd; background-color: #007bff; color: white;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let etudiant of etudiants">
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ etudiant.id }}</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ etudiant.nom }}</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ etudiant.prenom }}</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ etudiant.classe }}</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">
+        <button (click)="editEtudiant(etudiant)" 
+                style="margin-right: 10px; padding: 6px 12px; font-size: 14px; color: #fff; background-color: #28a745; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">
+          Modifier
+        </button>
+        <button (click)="deleteEtudiant(etudiant.id)" 
+                style="padding: 6px 12px; font-size: 14px; color: #fff; background-color: #dc3545; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

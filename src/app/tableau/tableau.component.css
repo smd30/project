@@ -1,0 +1,194 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+thead {
+    background-color: #457b9d;
+    color: #fff;
+}
+
+thead th {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+} 
+
+tbody td {
+    padding: 0.8rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Pied de page des actions */
+td:last-child {
+    font-weight: bold;
+    color: #1d3557;
+    cursor: pointer;
+}
+
+/* Table hover */
+tbody tr:hover {
+    background-color: #e8f0fe;
+}
+
+/* Centrage global */
+body {
+    text-align: center;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+/* Styles généraux pour les boutons */
+button {
+    background-color: #007bff; /* Couleur de fond bleue */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur */
+    border: none; /* Enlever la bordure par défaut */
+    border-radius: 5px; /* Bords arrondis */
+    cursor: pointer; /* Curseur pointeur pour indiquer que c'est cliquable */
+    font-size: 16px; /* Taille de police */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+    margin-right: 10px; /* Espacement entre les boutons */
+  }
+  
+  /* Effet au survol */
+  button:hover {
+    background-color: #0056b3; /* Changement de couleur au survol */
+    transform: scale(1.05); /* Légère agrandissement du bouton */
+  }
+  
+  /* Effet au clic */
+  button:active {
+    background-color: #004085; /* Changement de couleur au clic */
+    transform: scale(0.98); /* Réduction du bouton au clic */
+  }
+  
+  /* Styles spécifiques pour les boutons "Supprimer" */
+  button:nth-child(2) {
+    background-color: #dc3545; /* Couleur rouge pour le bouton Supprimer */
+  }
+  
+  /* Effet spécifique pour le bouton "Supprimer" au survol */
+  button:nth-child(2):hover {
+    background-color: #c82333;
+  }
+/* Style du formulaire d'ajout */
+.form-container {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-form label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .add-form input {
+    margin-bottom: 16px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .add-form input:focus {
+    border-color: #007bff;
+  }
+  
+  .add-form button {
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style du tableau */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  table td button {
+    margin-right: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  table td button:hover {
+    background-color: #218838;
+  }
+  
+  table td button:last-child {
+    background-color: #dc3545;
+  }
+  
+  table td button:last-child:hover {
+    background-color: #c82333;
+  }
+    
